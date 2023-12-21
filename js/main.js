@@ -59,7 +59,8 @@ stampa un messaggio appropriato sull’esito del controllo. */
 const userEmailElement = document.getElementById('email-address');
 const accessButton = document.getElementById('accedi');
 const form = document.querySelector('.form');
-const login = document.getElementById('login-message')
+const loginMessage = document.getElementById('login-message');
+const errorMessage = document.getElementById('errorMessage');
 
 // Lista di email autorizzate
 const emails = [
@@ -79,7 +80,7 @@ accessButton.addEventListener('click', function() {
 
     if (!userEmail) {
         message = 'Campo obbligatorio'; 
-        login.innerText = message;
+        errorMessage.innerText = message;
         return;
     }
 
@@ -93,12 +94,12 @@ accessButton.addEventListener('click', function() {
         if (userEmail === authorizedEmail) {
             message = 'Benvenuto'
             form.classList.add('d-none');
-            login.innerText = message;
+            loginMessage.innerText = message;
             return;
             
         } else {
             message = 'Email errata o inesistente'
-            login.innerText = message;
+            errorMessage.innerText = message;
         }
 
         
