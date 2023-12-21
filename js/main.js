@@ -56,7 +56,7 @@ stampa un messaggio appropriato sull’esito del controllo. */
 
 
 //Recupero gli elementi che mi servono
-const userEmail = document.getElementById('email-address');
+const userEmailElement = document.getElementById('email-address');
 const accessButton = document.getElementById('accedi');
 
 // Lista di email autorizzate
@@ -66,8 +66,31 @@ const emails = [
 ];
 
 
+accessButton.addEventListener('click', function() {
+
+    const userEmail = userEmailElement.value;
+
+    if (!userEmail) {
+        console.log('inserisci qualcosa'); 
+        return;
+    }
+
+    console.log('userEmail: ' + userEmail)
+
+    for (let i = 0; i < emails.length; i++) {
+        const authorizedEmail = emails[i];
+        console.log(`${i+1}° email autorizzata: ${authorizedEmail}`);
+        
+        if (userEmail !== authorizedEmail) {
+            console.log('non è un email autorizzata')
+        } else {
+            console.log("è un'email autorizzata")
+        }
+    }
 
 
-for (let i = 0; i < emails.length; i++) {
-    console.log(emails[i])
-}
+
+
+
+});
+
