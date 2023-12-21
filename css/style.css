@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.d-none {
+    display: none;
+}
+
+
+.dice-game-container {
+    height: 100vh;
+    background: rgb(134, 167, 74);
+    position: relative;
+    width: 100vw;
+    padding-top: 3rem;
+}
+
+#dadi-start {
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 3rem;
+    border: 3px solid orange;
+    border-radius: 25px;
+    background-color: orangered;
+    cursor: pointer;
+    
+}
+
+.dice-game-container p {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 2rem;
+    
+}
+
+#winner {
+    text-transform: uppercase;
+}
+
+figure {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+figure #cpu-win {
+    max-width: 20%;
+}
+
+
+#dadi-start:active {
+    scale: .9;
+    transform: translate(-55%, 0);
+}
