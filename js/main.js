@@ -58,34 +58,51 @@ stampa un messaggio appropriato sull’esito del controllo. */
 //Recupero gli elementi che mi servono
 const userEmailElement = document.getElementById('email-address');
 const accessButton = document.getElementById('accedi');
+const form = document.querySelector('.form');
+const login = document.getElementById('login-message')
 
 // Lista di email autorizzate
 const emails = [
     'pincopallinojoe@outlook.it',
     'nonsainientejonsnow@outlook.it',
+    'paperino@gmail.it',
+    'paolocannone22@gmail.it',
+    'ciao@gmail.it'
+
 ];
 
 
 accessButton.addEventListener('click', function() {
 
     const userEmail = userEmailElement.value;
+    let message = '';
 
     if (!userEmail) {
-        console.log('inserisci qualcosa'); 
+        message = 'Campo obbligatorio'; 
+        login.innerText = message;
         return;
     }
 
-    console.log('userEmail: ' + userEmail)
+    // console.log('userEmail: ' + userEmail)
 
     for (let i = 0; i < emails.length; i++) {
         const authorizedEmail = emails[i];
         console.log(`${i+1}° email autorizzata: ${authorizedEmail}`);
+        let message = '';
         
-        if (userEmail !== authorizedEmail) {
-            console.log('non è un email autorizzata')
+        if (userEmail === authorizedEmail) {
+            message = 'Benvenuto'
+            form.classList.add('d-none');
+            login.innerText = message;
+            return;
+            
         } else {
-            console.log("è un'email autorizzata")
+            message = 'Email errata o inesistente'
+            login.innerText = message;
         }
+
+        
+
     }
 
 
